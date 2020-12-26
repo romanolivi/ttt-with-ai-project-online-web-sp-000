@@ -1,3 +1,5 @@
+
+require 'pry'
 class Board 
   attr_accessor :cells
   
@@ -61,7 +63,7 @@ class Board
   
   def update(input, player = "X")
     input = input.to_i
-    @cells[input - 1] = player
+    @cells[input - 1] = player.token
   end
 end
 
