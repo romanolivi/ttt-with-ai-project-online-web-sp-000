@@ -40,7 +40,9 @@ class Board
     count
   end
   
+
   def taken?(index)
+    index = index.to_i
     if position(index) == "X" || position(index) == "O"
       return true
     else 
@@ -48,6 +50,19 @@ class Board
     end
   end
   
+  def valid_move?(input)
+    input = input.to_i
+    if input.between?(1, 9) && !taken?(input)
+      true
+    else 
+      false 
+    end
+  end
+  
+  def update(input, player = "X")
+    input = input.to_i
+    @cells[input - 1] = player
+  end
 end
 
 
