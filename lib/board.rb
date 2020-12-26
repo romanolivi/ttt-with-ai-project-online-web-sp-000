@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 
-require 'pry'
-class Board 
-=======
 class Board
->>>>>>> e364ad0a2a4ed252787dfabecfacf65dd1927822
   attr_accessor :cells
 
   def initialize
