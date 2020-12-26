@@ -20,7 +20,7 @@ class Game
     end
 
     def current_player
-        board.turn_count.odd? ? player_2 : player_1
+        board.turn_count.even? ? player_1 : player_2
     end
 
     def won?
@@ -42,30 +42,32 @@ class Game
     end
 
     def turn
-        puts "Enter a number from 1-9: "
+        puts "Where would you like to move from 1-9: "
         input = current_player.move(@board)
         if @board.valid_move?(input)
             @board.update(input, current_player)
+<<<<<<< HEAD
+=======
+        else puts "Where would you like to move from 1-9:"
+>>>>>>> e364ad0a2a4ed252787dfabecfacf65dd1927822
             @board.display
         else puts "Enter a number from 1-9: "
             turn
         end
         @board.display
     end
-    
-    
-    def play 
-      until over?
-        turn 
-        @board
-      end
-      
-      if won?
-        winner == "X" || winner == "O"
-        puts "Congratulations #{winner}!"
-      elsif draw?
-        puts "Cat's Game!"
-      end
-  end 
+
+    def play
+        until over?
+            turn
+        end
+
+        if won?
+            puts "Congratulations #{winner}!"
+        elsif draw?
+            puts "Cat's Game!"
+        end
+        @board.display
+    end
 
 end
